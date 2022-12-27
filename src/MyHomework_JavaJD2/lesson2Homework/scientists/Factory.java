@@ -1,10 +1,10 @@
-package MyHomework_JavaJD2.lesson2Homework.Zadacha;
+package MyHomework_JavaJD2.lesson2Homework.scientists;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static MyHomework_JavaJD2.lesson2Homework.Zadacha.Runner.*;
+import static MyHomework_JavaJD2.lesson2Homework.scientists.Runner.*;
 
 public class Factory extends Thread {
 

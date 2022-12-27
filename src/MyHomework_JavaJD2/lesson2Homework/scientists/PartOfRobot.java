@@ -1,4 +1,4 @@
-package MyHomework_JavaJD2.lesson2Homework.Zadacha;
+package MyHomework_JavaJD2.lesson2Homework.scientists;
 
 public abstract class PartOfRobot {//на основе этого класса можно создать любое количество разных составных робочастей
                                     // в классе PartList в виде внутренних статических классов именно так и сделано

@@ -1,12 +1,11 @@
-package MyHomework_JavaJD2.lesson2Homework.Zadacha;
+package MyHomework_JavaJD2.lesson2Homework.scientists;
 
 import java.util.Comparator;
+import static MyHomework_JavaJD2.lesson2Homework.scientists.Runner.*;
 
-import static MyHomework_JavaJD2.lesson2Homework.Zadacha.Runner.COUNT_OF_ALL_NIGHTS;
-import static MyHomework_JavaJD2.lesson2Homework.Zadacha.Runner.TIME_OF_NIGHT_MSEC;
 
 public class Scientist extends Thread {
-    private Factory factory;//Поле, которое заполняетс при вызове конструктора. Объект должен быть общим для всех учёных
+    private Factory factory;//Поле, которое заполняется при вызове конструктора. Объект должен быть общим для всех учёных
     private PartsList listWithComponents = new PartsList();//при создании нового экземпляра учёного создаётся новый список всех
     //доступных робочастей(счётчики количества внутри всех объектов списка - дефолтные т.е. 0)
     private Servant servant = new Servant();//новый экземпляр объекта Servant для каждого учёного

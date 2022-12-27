@@ -1,4 +1,4 @@
-package MyHomework_JavaJD2.lesson2Homework.Zadacha;
+package MyHomework_JavaJD2.lesson2Homework.scientists;
 
 /*Задача
 Двое безумных учёных устроили соревнование, кто из них соберёт больше роботов за 100 ночей.
@@ -18,7 +18,6 @@ package MyHomework_JavaJD2.lesson2Homework.Zadacha;
 После 100 ночей (около 10 секунд) определить победителя соревнования.*/
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,13 +25,13 @@ public class Runner {
 
     //все заданные условиями задачи параметры вносятся в одном месте:
     public static final int FIRST_NIGHT_FACTORY_TRASH_COUNT = 20;
-    public static final int EVERY_NIGHT_MAX_FACTORY_TRASH_COUNT = 4;
     public static final int EVERY_NIGHT_MIN_FACTORY_TRASH_COUNT = 1;
+    public static final int EVERY_NIGHT_MAX_FACTORY_TRASH_COUNT = 4;
     public static final int EVERY_NIGHT_MIN_SERVANT_PART_COUNT = 1;
     public static final int EVERY_NIGHT_MAX_SERVANT_PART_COUNT = 4;
     public static final int TIME_OF_NIGHT_MSEC = 100;
-    public static final int COUNT_OF_ALL_SCIENTISTS = 4;
-    public static final int COUNT_OF_ALL_NIGHTS = 100;
+    public static final int COUNT_OF_ALL_SCIENTISTS = 2;
+    public static final int COUNT_OF_ALL_NIGHTS = 60;
 
 
     public static void main(String[] args) throws InterruptedException {

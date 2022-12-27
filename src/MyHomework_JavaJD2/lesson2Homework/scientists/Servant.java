@@ -1,11 +1,9 @@
-package MyHomework_JavaJD2.lesson2Homework.Zadacha;
+package MyHomework_JavaJD2.lesson2Homework.scientists;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static MyHomework_JavaJD2.lesson2Homework.Zadacha.Runner.EVERY_NIGHT_MAX_SERVANT_PART_COUNT;
-import static MyHomework_JavaJD2.lesson2Homework.Zadacha.Runner.EVERY_NIGHT_MIN_SERVANT_PART_COUNT;
+import static MyHomework_JavaJD2.lesson2Homework.scientists.Runner.*;
 
 public class Servant {
 
