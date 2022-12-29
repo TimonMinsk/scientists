@@ -1,5 +1,6 @@
 package MyHomework_JavaJD2.lesson2Homework.scientists;
 
+
 /*Задача
 Двое безумных учёных устроили соревнование, кто из них соберёт больше роботов за 100 ночей.
 Для этого каждую ночь каждый из них отправляет своего прислужника на свалку фабрики
@@ -17,32 +18,24 @@ package MyHomework_JavaJD2.lesson2Homework.scientists;
 Фабрика и два прислужника действуют в одно и то же время.
 После 100 ночей (около 10 секунд) определить победителя соревнования.*/
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Runner {
 
-    //все заданные условиями задачи параметры вносятся в одном месте:
-    public static final int FIRST_NIGHT_FACTORY_TRASH_COUNT = 20;
-    public static final int EVERY_NIGHT_MIN_FACTORY_TRASH_COUNT = 1;
-    public static final int EVERY_NIGHT_MAX_FACTORY_TRASH_COUNT = 4;
-    public static final int EVERY_NIGHT_MIN_SERVANT_PART_COUNT = 1;
-    public static final int EVERY_NIGHT_MAX_SERVANT_PART_COUNT = 4;
-    public static final int TIME_OF_NIGHT_MSEC = 100;
-    public static final int COUNT_OF_ALL_SCIENTISTS = 2;
-    public static final int COUNT_OF_ALL_NIGHTS = 60;
-
-
     public static void main(String[] args) throws InterruptedException {
 
-        PartsList partsList = new PartsList();//объект с набором выпускаемых(и необходимых для сборки роботов) компонентов
-        Factory factory = new Factory(partsList);//общая фабрика компонентов
+        Random random = new Random();
+        Dump dump = new Dump();//общая свалка
+        Factory factory = new Factory(dump, random);//общая фабрика компонентов
         List<Scientist> academyOfScience = new ArrayList<>();//академия сумасшедщих учёных
 
 
-        for (int i = 0; i < COUNT_OF_ALL_SCIENTISTS; i++) {
-            Scientist scientist = new Scientist(factory);//i-ый ученый
+        for (int i = 0; i < InputData.COUNT_OF_ALL_SCIENTISTS; i++) {
+            Scientist scientist = new Scientist(dump, random);//создаётся i-ый ученый
             academyOfScience.add(scientist);//заполнение академии учёными
         }
 
@@ -58,32 +51,32 @@ public class Runner {
             scientist.join();
         }
 
-//подсчёт результатов
+        //подсчёт результатов
         checkTheWinner(academyOfScience);
         System.out.println(Thread.currentThread().getName() + "  finished.");
     }
 
     private static void checkTheWinner(List<Scientist> academyOfScience) {
 
-        int winnerCount = academyOfScience.stream()
+        int winnerCountOfRobots = academyOfScience.stream()
                 .map(scientist -> scientist.getCountOfRobots())
                 .max(Integer::compareTo)
                 .get();
 
-        if (winnerCount == 0) {
+        if (winnerCountOfRobots == 0) {
             System.out.println("Nobody had build any robots. ");
         } else {
             List<Scientist> winnersList = academyOfScience.stream()
-                    .filter(scientist -> scientist.getCountOfRobots() == winnerCount)
+                    .filter(scientist -> scientist.getCountOfRobots() == winnerCountOfRobots)
                     .collect(Collectors.toList());
             if (winnersList.size() > 1) {
-                System.out.println("The same max number of robots were build by "+winnersList.size()+" scientists: ");
+                System.out.println("The same max number of robots were build by " + winnersList.size() + " scientists: ");
                 for (Scientist scientist : winnersList) {
-                    System.out.println("The scientist number "+scientist.getNumberOfScientist()+";");
+                    System.out.println("The scientist number " + scientist.getScientistID() + ";");
                 }
-            }else {
-                System.out.println("The winner is scientist number "+winnersList.get(0).getNumberOfScientist()+";");
-                System.out.println("Hi had build "+winnerCount+" robots.");
+            } else {
+                System.out.println("The winner is scientist number " + winnersList.get(0).getScientistID() + ";");
+                System.out.println("Hi had build " + winnerCountOfRobots + " robots.");
             }
         }
     }
