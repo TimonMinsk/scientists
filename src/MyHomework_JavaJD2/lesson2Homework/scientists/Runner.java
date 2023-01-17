@@ -76,8 +76,18 @@ public class Runner {
                 }
             } else {
                 System.out.println("The winner is scientist number " + winnersList.get(0).getScientistID() + ";");
-                System.out.println("Hi had build " + winnerCountOfRobots + " robots.");
+                System.out.println("He had build " + winnerCountOfRobots + " robots.");
             }
         }
+
+
+
+
+
+
+    }
+
+    public String toString(){
+        return "?";
     }
 }
